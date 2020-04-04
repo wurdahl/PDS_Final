@@ -14,7 +14,7 @@ double getArea(shape *self){
 
 void new_shape(shape *shap){
   shap->dim=0;
-  shap->computeArea = &getArea;
+  shap->computeArea = getArea(shap);
 }
 
 int main(){
@@ -25,7 +25,7 @@ int main(){
 
   square.dim=2;
 
-  printf("%lf\n", square->computeArea );
+  printf("%lf\n", square.computeArea );
 
   // char *num = "5.3\n";
   // char *input;
