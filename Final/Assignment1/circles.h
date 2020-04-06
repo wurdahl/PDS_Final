@@ -1,5 +1,3 @@
-#include<math.h>
-
 typedef struct CircleClass CircleClass;
 
 struct CircleClass{

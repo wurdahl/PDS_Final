@@ -3,29 +3,34 @@
 #include<string.h>
 #include<math.h>
 
-typedef struct shape{
-  double dim;
-  double *computeArea;
-}shape;
-
-double getArea(shape *self){
-  return pow(self->dim,2);
-}
-
-void new_shape(shape *shap){
-  shap->dim=0;
-  shap->computeArea = getArea(shap);
-}
+// typedef struct shape{
+//   double dim;
+//   double *computeArea;
+// }shape;
+//
+// double getArea(shape *self){
+//   return pow(self->dim,2);
+// }
+//
+// void new_shape(shape *shap){
+//   shap->dim=0;
+//   shap->computeArea = getArea(shap);
+// }
 
 int main(){
 
-  shape square;
+  double x=5;
+  double y=3;
 
-  new_shape(&square);
+  printf("%f\n", fmod(x,y));
 
-  square.dim=2;
-
-  printf("%lf\n", square.computeArea );
+  // shape square;
+  //
+  // new_shape(&square);
+  //
+  // square.dim=2;
+  //
+  // printf("%lf\n", square.computeArea );
 
   // char *num = "5.3\n";
   // char *input;
