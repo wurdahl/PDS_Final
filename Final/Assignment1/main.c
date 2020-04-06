@@ -1,13 +1,13 @@
+#include "circles.h"
 #include<stdio.h>
 #include<stdlib.h>
-#include "circles.h"
 #include<string.h>
 
 int main(){
 
   //setting up cirlce class functions
   CircleClass circle1;
-  cirlce_new(&circle1);
+  newCircle(circle1);
 
   char *xCoorStr;
   xCoorStr = malloc(1000);
@@ -35,7 +35,7 @@ int main(){
   printf("x coordinate is %lf\n", circle1.xCoor);
   printf("y coordinate is %lf\n", circle1.yCoor);
   printf("Radius is %lf\n", circle1.Radius);
-  printf("area is %lf\n", shape_computeArea(circle1));
+  printf("area is %lf\n", getCircleArea(&circle1));
 
   return 0;
 }
