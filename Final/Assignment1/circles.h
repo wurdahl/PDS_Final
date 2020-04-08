@@ -16,3 +16,13 @@ int newCircle(CircleClass circ){
   circ.Radius = 0;
   return 0;
 }
+
+void partAOutput(CircleClass circ){
+  printf("x coordinate is %lf\n", circ.xCoor);
+  printf("y coordinate is %lf\n", circ.yCoor);
+  printf("Radius is %lf\n", circ.Radius);
+  printf("area is %lf\n", getCircleArea(&circ));
+
+  puts("");
+
+}
