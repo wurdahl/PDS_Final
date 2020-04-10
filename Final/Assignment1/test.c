@@ -5,11 +5,12 @@
 
 int main(){
 
-  double here;
+  char s[] = "hello my name is bob.";
 
-  scanf("%lf", here);
+  char *a = strtok(s," ");
 
-  printf("%lf", here);
+  char *b = strtok(NULL, "");
+  printf("%s\n", strcat(b,a));
 
 
   return 0;

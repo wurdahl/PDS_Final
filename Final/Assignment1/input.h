@@ -1,15 +1,39 @@
 #include<stdbool.h>
 
-int safeDoubleInput(char query, Double *doub){
+int safeDoubleInput(double *target){
+
   bool safe = false;
 
   while(!safe){
 
-    printf("%c\n", query);
+    if(scanf("%lf", target)!=0){
+      safe = true;
+    }
+    else{
+      printf("That didn't work. Try Again.\n");
+    }
 
-    scanf("%lf", doub);
+    fflush(stdin);
 
-    if(doub)
+  }
+
+  return 0;
+}
+
+int safeStringInput(char *target){
+
+  bool safe = false;
+
+  while(!safe){
+
+    if(scanf("%c", target)!=0){
+      safe = true;
+    }
+    else{
+      printf("That didn't work. Try Again.\n");
+    }
+
+    fflush(stdin);
 
   }
 
