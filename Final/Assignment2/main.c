@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "PrimeFinder.h"
 #include <stdbool.h>
+#include "MultiTable.h"
+#include "input.h"
 
 int main(){
 
@@ -22,8 +24,18 @@ int main(){
 
         break;
 
-      case 2:
-        //Multiplication table
+      case 2:;
+
+        int min;
+        int max;
+
+        safeIntInput("Min value of Multiplication table: ", &min);
+        safeIntInput("Max value of Multiplication table: ", &max);
+
+        printf("\n");
+
+        multiTable(min,max);
+
         break;
 
       case 3:
@@ -43,7 +55,14 @@ int main(){
 
       case 5:
         running = false;
+        break;
+
+      default:
+        printf("Thats not an option. Please select something from 1-5.\n");
+
      }
+
+     fflush(stdin);
 
     }
 

@@ -5,15 +5,20 @@
 
 int main(){
 
-  char *tar= malloc(1000);
+  FILE *fp;
+  char str[60];
 
-  if(fgets(tar, 100, stdin)=='\0'){
-    printf("end of file\n");
-  }
+   /* opening file for reading */
+   fp = fopen("file.txt" , "r");
+   if(fp == NULL) {
+      perror("Error opening file");
+      return(-1);
+   }
+   if( fgets (str, 60, fp)!=NULL ) {
+      /* writing content to stdout */
+      puts(str);
+   }
+   fclose(fp);
 
-  puts(tar);
-
-  //printf("output: %d\n", fgets(tar, 100, stdin) );
-
-  return 0;
+   return(0);
 }

@@ -26,19 +26,14 @@ int main(){
           CircleClass circle1;
           newCircle(circle1);
 
-          printf("X coordinate: ");
-          scanf("%lf", &(circle1.xCoor));
+          //printf("X coordinate: ");
+          safeDoubleInput("X coordinate: ",&(circle1.xCoor));
 
-          //clear buffer
-          fflush(stdin);
+          //printf("Y coordinate: ");
+          safeDoubleInput("Y coordinate: ",&(circle1.yCoor));
 
-          printf("Y coordinate: ");
-          scanf("%lf", &(circle1.yCoor));
-          fflush(stdin);
-
-          printf("Radius: ");
-          scanf("%lf", &(circle1.Radius));
-          fflush(stdin);
+          //printf("Radius: ");
+          safeDoubleInput("Radius: ",&(circle1.Radius));
 
           partAOutput(circle1);
           break;
@@ -48,14 +43,11 @@ int main(){
         //distanceConverter Section
         distanceConverter disConv;
 
-        printf("How many meters: ");
+        double inMeters;
 
-        char *metersStr;
-        metersStr = malloc(1000);
+        safeDoubleInput("How many meters: ", &inMeters);
 
-        safeStringInput(metersStr);
-
-        disConv.inputMeters = strtod(metersStr, '\0');
+        disConv.inputMeters = inMeters;
 
         getResults(&disConv);
 
@@ -74,7 +66,7 @@ int main(){
           char *lineStr = malloc(1000);
 
           //get input from user and put it in lineStr
-          fgets(lineStr, 100, stdin);
+          fgets(lineStr, 1000, stdin);
           fflush(stdin);
 
           printf("input is %s\n", lineStr);
@@ -95,6 +87,11 @@ int main(){
 
         case 4:
           running = false;
+        break;
+
+        default:
+          printf("please select an option from 1-4.\n");
+
       }
 
   }
