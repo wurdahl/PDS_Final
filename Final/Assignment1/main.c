@@ -85,7 +85,7 @@ int main(){
           //The second strtok starts from the last Null(where the space was),
           // and then goes to the end of the string because nothing matches ""
           char *last = (strtok(NULL, "\n"));
-          
+
           //add a space after last so that there is a space between first and last
           strcat(last, " ");
 
@@ -98,12 +98,6 @@ int main(){
       }
 
   }
-
-
-
-
-
-
 
   return 0;
 }

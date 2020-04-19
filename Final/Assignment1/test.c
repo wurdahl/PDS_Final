@@ -5,13 +5,15 @@
 
 int main(){
 
-  char s[] = "hello my name is bob.";
+  char *tar= malloc(1000);
 
-  char *a = strtok(s," ");
+  if(fgets(tar, 100, stdin)=='\0'){
+    printf("end of file\n");
+  }
 
-  char *b = strtok(NULL, "");
-  printf("%s\n", strcat(b,a));
+  puts(tar);
 
+  //printf("output: %d\n", fgets(tar, 100, stdin) );
 
   return 0;
 }
