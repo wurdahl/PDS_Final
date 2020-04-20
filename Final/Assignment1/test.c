@@ -3,22 +3,17 @@
 #include<string.h>
 #include<math.h>
 
+#define TWO 2
+
+
 int main(){
 
-  FILE *fp;
-  char str[60];
+  int two = 2;
+  int fiv = 5;
 
-   /* opening file for reading */
-   fp = fopen("file.txt" , "r");
-   if(fp == NULL) {
-      perror("Error opening file");
-      return(-1);
-   }
-   if( fgets (str, 60, fp)!=NULL ) {
-      /* writing content to stdout */
-      puts(str);
-   }
-   fclose(fp);
+  int c = fiv%TWO;
+
+  printf("%d\n",c );
 
    return(0);
 }

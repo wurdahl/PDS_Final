@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include "MultiTable.h"
 #include "input.h"
+#include "timeConverter.h"
 
 int main(){
 
@@ -20,7 +21,7 @@ int main(){
     switch (testInteger) {
       case 1:
         //Interest Rate Calculator
-        printf("%d\n", 1);
+        
 
         break;
 
@@ -49,8 +50,18 @@ int main(){
 
         break;
 
-      case 4:
+      case 4:;
         //TimeConverter
+
+        TimeConverter timeConverter= {0,0,0,0,0};
+
+        safeIntInput("Seconds to be coverted: ", &(timeConverter.inSeconds));
+
+        convertTime(&timeConverter);
+
+        printf("%d seconds equals %d days, %d hours, %d minutes, and %d seconds\n",timeConverter.inSeconds, timeConverter.outDays, timeConverter.outHours,timeConverter.outMinutes, timeConverter.outSeconds);
+
+
         break;
 
       case 5:
