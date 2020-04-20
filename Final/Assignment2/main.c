@@ -5,6 +5,7 @@
 #include "MultiTable.h"
 #include "input.h"
 #include "timeConverter.h"
+#include "interestRateTable.h"
 
 int main(){
 
@@ -19,9 +20,26 @@ int main(){
     scanf("%d", &testInteger);
 
     switch (testInteger) {
-      case 1:
+      case 1:;
         //Interest Rate Calculator
-        
+
+        double principalInput;
+
+        int yearStartInput;
+        int yearEndInput;
+
+        int rateStartInput;
+        int rateEndInput;
+
+        safeDoubleInput("principal: ", &principalInput);
+
+        safeIntInput("Start year: ", &yearStartInput);
+        safeIntInput("End year: ", &yearEndInput);
+
+        safeIntInput("rate start: ", &rateStartInput);
+        safeIntInput("rate end: ", &rateEndInput);
+
+        makeInterestTable(principalInput, yearStartInput, yearEndInput, rateStartInput, rateEndInput);
 
         break;
 
