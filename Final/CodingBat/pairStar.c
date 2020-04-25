@@ -3,21 +3,6 @@
 #include "input.h"
 #include<string.h>
 
-int strLength(char *str){
-
-  int length = 0;
-
-  while(*str != '\0'){
-
-    length++;
-    str++;
-
-  }
-
-  return length;
-
-}
-
 char *subString(char *string,int start, int end){
 
   static char sub[100];
@@ -28,49 +13,52 @@ char *subString(char *string,int start, int end){
 
 }
 
-
 char *pairStar(char *str){
 
-  char *star = "*";
-  static char holder[50];
+  char *returnStr = malloc(1000);
+  char holder[200] = {0};
+  printf("holder first is %s\n",holder );
 
-  if(strLength(str)<=1){
-    //printf("here\n");
+  if(strlen(str)<=1){
 
     return str;
   }
 
   if(str[0] == str[1]){
 
-    //printf("here1");
-
-
     strncat(holder, &(str[0]),1);
-    strcat(holder, star);
+    strcat(holder, "*");
 
-    char *next = pairStar(subString(str, 1, strLength(str)));
+    strcat(holder, pairStar(subString(str, 1, strlen(str))));
 
-    strcat(holder, next);
+    printf("holder is %s\n",holder );
 
-    return holder;
+
+    printf("strcpy result is %s\n", strcpy(returnStr, holder));
+    printf("returnStr is %s\n", returnStr);
+    return returnStr;
 
   }
 
+  //add the first letter to the return variable
   strncat(holder, &str[0],1);
-  char *next = pairStar( subString(str,1, strLength(str)) );
-  strcat(holder, next);
 
-  return holder;
+  strcat(holder, pairStar(subString(str, 1, strlen(str))));
 
+  printf("holder is %s\n",holder );
+
+  printf("strcpy result is %s\n", strcpy(returnStr, holder));
+  printf("returnStr is %s\n", returnStr);
+  return returnStr;
 
 }
 
 int main(){
 
-  char *output = pairStar("aaaa");
+  char *input = "aaabbb";
 
-  printf("%s\n",output );
+  printf("Output is %s\n", pairStar(input) );
 
-  return(0);
+  return 0;
 
 }
