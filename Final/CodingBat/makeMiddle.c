@@ -5,7 +5,7 @@
 #include<stdlib.h>
 #include "input.h"
 
-int* makeMiddle(size_t len, int nums[]){
+int* makeMiddle(int len, int nums[]){
 
   int length = len;
 
@@ -16,8 +16,6 @@ int* makeMiddle(size_t len, int nums[]){
   r[0]=nums[mid];
   r[1]=nums[mid+1];
 
-  printf("%d and %d\n", r[0], r[1]);
-
   return r;
 
 
@@ -26,19 +24,14 @@ int* makeMiddle(size_t len, int nums[]){
 
 int main(){
 
-  int nums[10];
+  int *nums=malloc(1000);
 
-  safeIntArrayInput("enter an array seperated by spaces: ");
+  int length = safeIntArrayInput("enter an array seperated by spaces: ", nums);
 
-  printf("ok\n" );
+  int *middle;
+  middle = makeMiddle(length, nums);
 
-
-  // int *middle;
-  // size_t len = sizeof(nums)/sizeof(nums[0]);
-  //
-  // middle = makeMiddle(len, nums);
-  //
-  // printf("%d and %d\n",middle[0], middle[1]);
+  printf("The numbers in the middle of the inputed array are %d and %d\n",middle[0], middle[1]);
 
   return 0;
 

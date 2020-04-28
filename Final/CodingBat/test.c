@@ -2,31 +2,46 @@
 #include<stdlib.h>
 #include<string.h>
 
-char *returnStr(char *str){
+int input(int *target){
 
-  char *returnString = malloc(1000);
-  char holder[10]={0};
+    char *lineStr = malloc(1000);
+    char *token;
 
-  if(strlen(str)<=1)
-  {
-    return str;
-  }
+    fgets(lineStr, 1000, stdin);
+    fflush(stdin);
 
-  strncat(holder, &str[0],1);
-  printf("h1 %s\n", holder);
+    token = strtok(lineStr, " ");
+    target[0]= atoi(token);
 
-  strcat(holder, returnStr(&str[1]));
-  printf("h2 %s\n", holder);
+    int i = 1;
 
-  strcpy(returnString, holder);
-  printf("h3 %s\n", returnString);
+    while(token != NULL){
+        token = strtok(NULL, " ");
 
-  return returnString;
+        //If is needed because while it checks the current for NULL,
+        //The next token could be null
+        if(token!=NULL){
+
+          target[i]= atoi(token);
+          printf("token at %d is %d\n", i, atoi(token));
+
+        }
+
+        i++;
+      }
+
+      //i is the length of the array
+      return i;
 
 }
 
 void main(){
 
-  printf("%s\n", returnStr("abcd"));
+  int *array = malloc(1000);
+
+  int length = input(array);
+
+  printf("%d %d %d size is %d\n",array[0], array[1],array[2], sizeof(&array)/sizeof(&array[0]));
+
 
 }
