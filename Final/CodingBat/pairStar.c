@@ -3,6 +3,7 @@
 #include "input.h"
 #include<string.h>
 
+//this function returns a substring of a given string
 char *subString(char *string,int start, int end){
 
   static char sub[100];
@@ -13,29 +14,36 @@ char *subString(char *string,int start, int end){
 
 }
 
+//this function recursively puts stars between the same letter in a string
 char *pairStar(char *str){
 
+  //A static variable is needed to return values
   char *returnStr = malloc(1000);
-  char holder[200] = {0};
-  printf("holder first is %s\n",holder );
 
+  //this variable will hold the temporary strings before returning
+  //this is needed because I need a local variable for recursion
+  char holder[200] = {0};
+
+  //if the string is just one letter, then return itselfS
   if(strlen(str)<=1){
 
     return str;
   }
 
+  //if the first letter is the same as the second letter, then return the first letter + a star then
+  //pairstar of the rest of the string
   if(str[0] == str[1]){
 
+    //concatenate the first letter and a star to holder
     strncat(holder, &(str[0]),1);
     strcat(holder, "*");
 
+    //concatenate the pairStar of the rest of the string to holder
     strcat(holder, pairStar(subString(str, 1, strlen(str))));
 
-    printf("holder is %s\n",holder );
+    //copy the holder string to the return string
+    strcpy(returnStr, holder);
 
-
-    printf("strcpy result is %s\n", strcpy(returnStr, holder));
-    printf("returnStr is %s\n", returnStr);
     return returnStr;
 
   }
@@ -43,21 +51,30 @@ char *pairStar(char *str){
   //add the first letter to the return variable
   strncat(holder, &str[0],1);
 
+  //add pairStar of the rest of the string to holder
   strcat(holder, pairStar(subString(str, 1, strlen(str))));
 
-  printf("holder is %s\n",holder );
+  //copy the holder string to the return string
+  strcpy(returnStr, holder);
 
-  printf("strcpy result is %s\n", strcpy(returnStr, holder));
-  printf("returnStr is %s\n", returnStr);
   return returnStr;
 
 }
 
 int main(){
 
-  char *input = "aaabbb";
+  printf("This program takes in a string and recursively puts stars between repeated letters.\n", );
 
-  printf("Output is %s\n", pairStar(input) );
+  printf("input string: ");
+
+  char *input = malloc(1000);
+
+  //get input from user and put it in lineStr
+  fgets(input, 1000, stdin);
+  fflush(stdin);
+
+
+  printf("Output of pairStar is %s\n", pairStar(input) );
 
   return 0;
 

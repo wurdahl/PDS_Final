@@ -1,3 +1,4 @@
+//Problem:
 //Given an array of ints of even length, return a new array length 2 containing
 //the middle two elements from the original array. The original array will be length 2 or more.
 
@@ -5,6 +6,7 @@
 #include<stdlib.h>
 #include "input.h"
 
+//given the length of an array and the array, this function returns the middle two values in an array
 int* makeMiddle(int len, int nums[]){
 
   int length = len;
@@ -23,6 +25,8 @@ int* makeMiddle(int len, int nums[]){
 
 
 int main(){
+
+  printf("This program returns the middle two values of an array with even length.\n");
 
   int *nums=malloc(1000);
 
