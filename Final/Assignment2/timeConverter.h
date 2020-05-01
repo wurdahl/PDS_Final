@@ -1,5 +1,6 @@
 #include<stdlib.h>
 
+//Conversion constants
 #define SECONDSINDAY 86400
 #define SECONDSINHOUR 3600
 #define SECONDSINMINUTE 60
@@ -12,6 +13,8 @@ typedef struct {
   int outSeconds;
 }TimeConverter;
 
+//this function converts just seconds into the corresponding days, hours, minutes, and seconds.
+//The values inside the struct are changed, therefore there is no return.
 void convertTime(TimeConverter *converter){
 
   converter->outDays = ((converter->inSeconds)/(SECONDSINDAY));

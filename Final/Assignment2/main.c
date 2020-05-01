@@ -9,6 +9,11 @@
 
 int main(){
 
+  printf("this program does 4 things. Option 1 creates a table investments at different interest rates\n");
+  printf("for a certain principle. Option 2 creates a multiplication table given a starting value and ending value.\n");
+  printf("Option 3 prints out all prime number up to a given integer value. Option 4 converts a given amount of seconds\n");
+  printf("into an equivalent amount of Days, hours, minutes, and seconds. Option 5 exits from the program.\n");
+
   int testInteger;
   bool running = true;
 
@@ -48,8 +53,8 @@ int main(){
         int min;
         int max;
 
-        safeIntInput("Min value of Multiplication table: ", &min);
-        safeIntInput("Max value of Multiplication table: ", &max);
+        safeIntInput("start value of Multiplication table: ", &min);
+        safeIntInput("end value of Multiplication table: ", &max);
 
         printf("\n");
 
@@ -71,14 +76,15 @@ int main(){
       case 4:;
         //TimeConverter
 
+        //initiallize a timeConverter strcut with all zero values
         TimeConverter timeConverter= {0,0,0,0,0};
 
         safeIntInput("Seconds to be coverted: ", &(timeConverter.inSeconds));
 
+        //this function fills in all time values in the struct
         convertTime(&timeConverter);
 
         printf("%d seconds equals %d days, %d hours, %d minutes, and %d seconds\n",timeConverter.inSeconds, timeConverter.outDays, timeConverter.outHours,timeConverter.outMinutes, timeConverter.outSeconds);
-
 
         break;
 

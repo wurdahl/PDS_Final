@@ -28,6 +28,8 @@ int main(){
   printf("Option 3 will take in an inputed line and place the first word at the end of the line. It will also output the length of the line\n");
   printf("option 4 will exit from the program\n");
 
+  printf("\nenter a number between 1 and 4 to select the different programs.\n");
+
   printf("\n");
 
   while(running){

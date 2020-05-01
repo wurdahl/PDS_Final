@@ -2,6 +2,12 @@
 
 void multiTable(int min, int max){
 
+  if(min>max){
+    int a = min;
+    min = max;
+    max = a;
+  }
+
   printf("%10s","x");
 
   //Create first row that labels the numbers in the x direction
